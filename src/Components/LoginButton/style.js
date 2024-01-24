@@ -1,0 +1,20 @@
+/* eslint-disable prettier/prettier */
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  ViewStyle: {
+    flexDirection: 'row',
+    backgroundColor: 'orange',
+    height: 50,
+    width: 300,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    borderRadius: 100,
+  },
+  text1_Style: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+});
