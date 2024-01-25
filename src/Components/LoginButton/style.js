@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
+import { fullWidth } from '../../Config/screenSizes';
 
 export const styles = StyleSheet.create({
   ViewStyle: {
     flexDirection: 'row',
-    backgroundColor: 'orange',
     height: 50,
-    width: 300,
+    width: fullWidth*0.9,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
