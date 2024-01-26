@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     marginTop: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom:10,
+    marginBottom: 10,
   },
   ImageViewStyle: {
     height: '90%',
@@ -52,24 +52,35 @@ export const styles = StyleSheet.create({
     fontSize: 18 * fontRef,
     color: 'white',
   },
+  upcomingMoviesTitleStyle: {
+    color: 'white',
+    fontSize: 18 * fontRef,
+    fontWeight: '600',
+    textAlign:'center'
+  },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
     color: AppColors.secondaryColor,
   },
-  upcomingImageViewStyle:{
+  upcomingImageViewStyle: {
     height: fullHeight * 0.4,
     width: fullWidth * 0.4,
     marginTop: 5,
+    paddingVertical:10,
     marginBottom: 10,
-    paddingLeft:10,
+    paddingLeft: 10,
     marginHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'center',
- 
   },
-  upcomingImagesStyle:{
+  upcomingImagesStyle: {
     height: '90%',
     width: fullWidth * 0.4,
     borderRadius: 20,
-  }
+    marginVertical:10
+  },
+  catagoryViewStyle:{
+// paddingVertical:10,
+marginBottom:10
+  },
 });
