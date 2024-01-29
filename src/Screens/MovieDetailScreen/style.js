@@ -54,13 +54,17 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     marginBottom: 10,
+    marginHorizontal:12
   },
   subtitetextStyle: {
     fontSize: 18 * fontRef,
     marginBottom: 5,
+    color:'#fff'
   },
   bodyTextStyle: {
     fontSize: 14 * fontRef,
+    color:'#fff',
+
   },
   catagoryViewStyle: {
     // paddingVertical:10,
@@ -72,6 +76,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
+    marginHorizontal: 10
   },
   upcomingImageViewStyle: {
     height: fullHeight * 0.4,
@@ -99,9 +104,11 @@ export const styles = StyleSheet.create({
   upcomingTextStyle: {
     fontSize: 18 * fontRef,
     color: 'white',
+    fontWeight: '600'
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
     color: AppColors.secondaryColor,
+    fontWeight: '600'
   },
 });

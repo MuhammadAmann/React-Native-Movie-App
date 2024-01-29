@@ -1,32 +1,46 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
 import {AppColors} from '../../Assets/colors';
-import {fontRef, fullHeight, fullWidth} from '../../Config/screenSizes';
+import {
+  fontRef,
+  fullHeight,
+  fullWidth,
+  heightRef,
+  widthRef,
+} from '../../Config/screenSizes';
 
 export const styles = StyleSheet.create({
   mainViewStyle: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: AppColors.backgroundColor,
-    flexWrap:'wrap'
-
   },
-//   wrapViewStyle:{
-//     flex:1,
-// flexDirection:'row',
-// flexWrap:'wrap'
-//   },
+  wrapViewStyle: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
+  },
+  textViewStyle: {
+    height: 100,
+    width: 100,
+    margin: 10,
+    backgroundColor: 'red',
+  },
   headerViewStyle: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
     paddingVertical: 12,
     paddingHorizontal: 20,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
+    elevation: 6,
+    backgroundColor: AppColors.backgroundColor,
+    // height: 50 * heightRef
   },
   headerTextStyle: {
     color: AppColors.secondaryColor,
     fontSize: 30 * fontRef,
     fontWeight: 'bold',
+    marginLeft: '10%'
   },
   trendngTextStyle: {
     color: 'white',
@@ -63,7 +77,8 @@ export const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18 * fontRef,
     fontWeight: '600',
-    textAlign:'center'
+    textAlign: 'center',
+    // marginBottom: 40,
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
@@ -72,23 +87,29 @@ export const styles = StyleSheet.create({
   upcomingImageViewStyle: {
     height: fullHeight * 0.4,
     width: fullWidth * 0.4,
-    marginTop: 5,
-    paddingVertical:10,
-    marginBottom: 10,
-    paddingHorizontal: 10,
+    marginTop: 20,
+    paddingVertical: 10,
+    // paddingHorizontal: 10,
     marginHorizontal: 10,
-    alignItems: 'center',
+    // alignItems: 'center',
     justifyContent: 'center',
-    
   },
   upcomingImagesStyle: {
     height: '90%',
     width: fullWidth * 0.4,
     borderRadius: 20,
-    marginVertical:10
+    marginVertical: 10,
   },
-  catagoryViewStyle:{
-// paddingVertical:10,
-marginBottom:10
+  upcomingdummyViewStyle: {
+    height: '90%',
+    width: fullWidth * 0.4 * widthRef,
+    borderRadius: 20,
+    marginVertical: 10 * heightRef,
+    backgroundColor: 'red',
+    // marginBottom:20,
+  },
+  catagoryViewStyle: {
+    // paddingVertical:10,
+    marginBottom: 10,
   },
 });

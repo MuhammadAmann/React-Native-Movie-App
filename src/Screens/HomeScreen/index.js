@@ -79,11 +79,13 @@ export const HomeScreen = ({props, navigation}) => {
   };
 
   return (
-    <ScrollView style={styles.mainViewStyle}>
+    <ScrollView
+      contentContainerStyle={{paddingBottom: 20}}
+      style={styles.mainViewStyle}>
       <View style={styles.headerViewStyle}>
         <Icon name="menu" type={IconType.Feather} color="white" size={24} />
         <TouchableOpacity
-          onPress={() => navigation.navigate('MovieDetailScreen')}>
+          onPress={() => navigation.navigate('SeeAllMoviesScreen')}>
           <Text style={styles.headerTextStyle}>Movies</Text>
         </TouchableOpacity>
         <Icon name="search" type={IconType.Feather} color="white" size={24} />
@@ -147,9 +149,19 @@ export const HomeScreen = ({props, navigation}) => {
             )}
           />
         ) : (
-          <View>
-            <ShimmerPlaceHolder style={styles.upcomingImageViewStyle} />
-          </View>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={[1, 1, 1]}
+            renderItem={({item}) => (
+              <View style={styles.upcomingShimmerViewStyle}>
+                <ShimmerPlaceHolder style={styles.upcomingImagesStyle} />
+              </View>
+            )}
+          />
+          // <View >
+          //   <ShimmerPlaceHolder style={styles.upcomingImagesStyle} />
+          // </View>
 
           // <View style={styles.sliderImageViewStyle}>
           //   <BarIndicator color="grey" />
@@ -165,7 +177,7 @@ export const HomeScreen = ({props, navigation}) => {
           <Text style={styles.seeAllTextStyle}>See All</Text>
         </View>
 
-        {upcomingData.length ? (
+        {topRatedData.length ? (
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -185,9 +197,16 @@ export const HomeScreen = ({props, navigation}) => {
             )}
           />
         ) : (
-          <View style={styles.sliderImageViewStyle}>
-            <BarIndicator color="grey" />
-          </View>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={[1, 1, 1]}
+            renderItem={({item}) => (
+              <View style={styles.upcomingShimmerViewStyle}>
+                <ShimmerPlaceHolder style={styles.upcomingImagesStyle} />
+              </View>
+            )}
+          />
         )}
       </View>
 
@@ -198,7 +217,7 @@ export const HomeScreen = ({props, navigation}) => {
           <Text style={styles.seeAllTextStyle}>See All</Text>
         </View>
 
-        {upcomingData.length ? (
+        {popularData.length ? (
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -218,9 +237,16 @@ export const HomeScreen = ({props, navigation}) => {
             )}
           />
         ) : (
-          <View style={styles.sliderImageViewStyle}>
-            <BarIndicator color="grey" />
-          </View>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={[1, 1, 1]}
+            renderItem={({item}) => (
+              <View style={styles.upcomingShimmerViewStyle}>
+                <ShimmerPlaceHolder style={styles.upcomingImagesStyle} />
+              </View>
+            )}
+          />
         )}
       </View>
     </ScrollView>

@@ -65,6 +65,18 @@ export const styles = StyleSheet.create({
   upcomingImageViewStyle: {
     height: fullHeight * 0.4,
     width: fullWidth * 0.4,
+    // marginTop: 10,
+    paddingVertical:10,
+    marginBottom: 30,
+    paddingHorizontal: 10,
+    marginHorizontal: 10,
+    alignItems: 'center',
+    // justifyContent: 'center',
+    borderRadius: 20
+  },
+  upcomingShimmerViewStyle: {
+    height: fullHeight * 0.4,
+    width: fullWidth * 0.4,
     marginTop: 5,
     paddingVertical:10,
     marginBottom: 10,
@@ -72,6 +84,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 20
   },
   upcomingImagesStyle: {
     height: '90%',

@@ -38,7 +38,7 @@ export const MovieDetailScreen = ({navigation, route}) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={{paddingBottom:20}} style={styles.scrollViewStyle}>
+    <ScrollView style={styles.scrollViewStyle}>
       <View>
         <ImageBackground source={{
                   uri: `${baseUrl}${data.poster_path}`,
