@@ -7,7 +7,14 @@ export const styles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
     backgroundColor: AppColors.backgroundColor,
+    flexWrap:'wrap'
+
   },
+//   wrapViewStyle:{
+//     flex:1,
+// flexDirection:'row',
+// flexWrap:'wrap'
+//   },
   headerViewStyle: {
     flex: 1,
     flexDirection: 'row',
@@ -28,11 +35,6 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 10,
   },
-  ImageViewStyle: {
-    height: '90%',
-    width: fullWidth * 0.85,
-    borderRadius: 20,
-  },
   sliderImageViewStyle: {
     height: fullHeight / 2,
     width: fullWidth,
@@ -40,6 +42,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
+  },
+  ImageViewStyle: {
+    height: '90%',
+    width: fullWidth * 0.85,
+    borderRadius: 20,
   },
   upcomingHeaderViewStyle: {
     flex: 1,
@@ -72,6 +79,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   upcomingImagesStyle: {
     height: '90%',

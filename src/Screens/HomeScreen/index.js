@@ -1,34 +1,42 @@
 /* eslint-disable prettier/prettier */
 
-import {FlatList, Image, ScrollView, Text, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {styles} from './style';
-import {
-  BallIndicator,
-  BarIndicator,
-  DotIndicator,
-  MaterialIndicator,
-  PacmanIndicator,
-  PulseIndicator,
-  SkypeIndicator,
-  UIActivityIndicator,
-  WaveIndicator,
-} from 'react-native-indicators';
+import {BarIndicator} from 'react-native-indicators';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
-import {getNowPlayingMovies, getPopularMovies, getUpcomingMovies} from '../../ApiServices/Axios';
+import {
+  getNowPlayingMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+  getUpcomingMovies,
+} from '../../ApiServices/Axios';
+import LinearGradient from 'react-native-linear-gradient';
+import {createShimmerPlaceholder} from 'react-native-shimmer-placeholder';
+const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
 
-export const HomeScreen = () => {
+export const HomeScreen = ({props, navigation}) => {
   //Movie baseUrl
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
 
   const [nowPlayingData, setnNowPlayingData] = useState([]);
   const [upcomingData, setUpcomingData] = useState([]);
-  // const [Data, setData] = useState([]);
-  // const [Data, setData] = useState([]);
+  const [topRatedData, setTopRatedData] = useState([]);
+  const [popularData, setPopularData] = useState([]);
 
   useEffect(() => {
     getNowPlayingMoviesData();
     getUpcomingMoviesData();
+    getTopRatedMoviesData();
+    getPopularMoviesData();
   }, []);
 
   const getNowPlayingMoviesData = async () => {
@@ -50,15 +58,37 @@ export const HomeScreen = () => {
       });
   };
 
+  const getTopRatedMoviesData = async () => {
+    await getTopRatedMovies()
+      .then(item => {
+        setTopRatedData(item.results);
+      })
+      .catch(error => {
+        console.warn(error);
+      });
+  };
+
+  const getPopularMoviesData = async () => {
+    await getPopularMovies()
+      .then(item => {
+        setPopularData(item.results);
+      })
+      .catch(error => {
+        console.warn(error);
+      });
+  };
+
   return (
     <ScrollView style={styles.mainViewStyle}>
       <View style={styles.headerViewStyle}>
         <Icon name="menu" type={IconType.Feather} color="white" size={24} />
-        <Text style={styles.headerTextStyle}>Movies</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('MovieDetailScreen')}>
+          <Text style={styles.headerTextStyle}>Movies</Text>
+        </TouchableOpacity>
         <Icon name="search" type={IconType.Feather} color="white" size={24} />
       </View>
       <Text style={styles.trendngTextStyle}>Now Playing</Text>
-
       {nowPlayingData.length ? (
         <FlatList
           horizontal
@@ -66,27 +96,35 @@ export const HomeScreen = () => {
           pagingEnabled
           data={nowPlayingData}
           renderItem={({item}) => (
-            <View style={styles.sliderImageViewStyle}>
+            <Pressable
+              onPress={() => navigation.navigate('MovieDetailScreen', {item})}
+              style={styles.sliderImageViewStyle}>
               <Image
                 source={{
                   uri: `${baseUrl}${item.poster_path}`,
                 }}
                 style={styles.ImageViewStyle}
               />
-            </View>
+            </Pressable>
           )}
         />
       ) : (
         <View style={styles.sliderImageViewStyle}>
-          <BarIndicator color="grey" />
+          <ShimmerPlaceHolder style={styles.ImageViewStyle} />
         </View>
+        // <View style={styles.sliderImageViewStyle}>
+        //   <BarIndicator color="grey" />
+        // </View>
       )}
 
       {/* Upcoming Movies List View   */}
       <View style={styles.catagoryViewStyle}>
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Upcoming</Text>
-          <Text style={styles.seeAllTextStyle}>See All</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('SeeAllMoviesScreen')}>
+            <Text style={styles.seeAllTextStyle}>See All</Text>
+          </TouchableOpacity>
         </View>
 
         {upcomingData.length ? (
@@ -109,9 +147,13 @@ export const HomeScreen = () => {
             )}
           />
         ) : (
-          <View style={styles.sliderImageViewStyle}>
-            <BarIndicator color="grey" />
+          <View>
+            <ShimmerPlaceHolder style={styles.upcomingImageViewStyle} />
           </View>
+
+          // <View style={styles.sliderImageViewStyle}>
+          //   <BarIndicator color="grey" />
+          // </View>
         )}
       </View>
 
@@ -127,7 +169,7 @@ export const HomeScreen = () => {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={upcomingData}
+            data={topRatedData}
             renderItem={({item}) => (
               <View style={styles.upcomingImageViewStyle}>
                 <Image
@@ -160,7 +202,7 @@ export const HomeScreen = () => {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={upcomingData}
+            data={popularData}
             renderItem={({item}) => (
               <View style={styles.upcomingImageViewStyle}>
                 <Image
