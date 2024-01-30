@@ -10,11 +10,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    borderRadius: 100,
+    borderRadius: 10,
+
   },
   text1_Style: {
     color: 'white',
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 16,
+    // fontWeight: 'bold',
   },
 });

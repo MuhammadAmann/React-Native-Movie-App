@@ -12,7 +12,7 @@ import {
 export const styles = StyleSheet.create({
   scrollViewStyle: {
     flex: 1,
-    backgroundColor: AppColors.backgroundColor,
+    backgroundColor: AppColors.backgroundPrimaryColor,
   },
   mainViewStyle: {
     marginTop: 4,

@@ -12,20 +12,23 @@ export const BoradingScreen = ({navigation}) => {
   return (
     <View style={styles.mainViewStyle}>
       <View style={styles.view1Style}>
-        {/* <Icon
-          name="camera"
-          type={IconType.FontAwesome}
-          size={100}
-          color="white"></Icon> */}
-          <Image
-          source={images.boardingScreenImage}
-          />
-        <Text style={styles.text1_Style}>Movie App</Text>
-        <Text style={styles.text2Style}>React Native</Text>
+        <Image source={images.boardingScreenImage} />
+        <Text style={styles.text1_Style}>Welcome to the movie App</Text>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-        <LoginButton backgroundcolor={AppColors.secondaryColor} />
-      </TouchableOpacity>
+      <View style={styles.secondViewStyle}>
+        <LoginButton
+          onPress={() => navigation.navigate('HomeScreen')}
+          Title={'Login'}
+          backgroundcolor={AppColors.redColor}
+        />
+
+        <LoginButton
+          onPress={() => navigation.navigate('HomeScreen')}
+          Title={'Sign Up'}
+          borderColor={AppColors.redColor}
+          borderWidth={1}
+        />
+      </View>
     </View>
   );
 };

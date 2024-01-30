@@ -1,7 +1,10 @@
 /* eslint-disable prettier/prettier */
 import react from 'react';
-import {ScreenNavigations} from './src/Navigation';
+import {ScreenNavigations} from './src/Navigation/StackNavigation';
+import { NavigationContainer } from '@react-navigation/native';
 const App = () => {
-  return <ScreenNavigations />;
+  return <NavigationContainer>
+    <ScreenNavigations/>
+  </NavigationContainer>;
 };
 export default App;

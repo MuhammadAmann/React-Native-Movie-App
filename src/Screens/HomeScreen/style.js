@@ -6,7 +6,7 @@ import {fontRef, fullHeight, fullWidth} from '../../Config/screenSizes';
 export const styles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
-    backgroundColor: AppColors.backgroundColor,
+    backgroundColor: AppColors.backgroundPrimaryColor,
   },
   headerViewStyle: {
     flex: 1,
