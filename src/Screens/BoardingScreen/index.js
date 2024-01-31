@@ -12,18 +12,18 @@ export const BoradingScreen = ({navigation}) => {
   return (
     <View style={styles.mainViewStyle}>
       <View style={styles.view1Style}>
-        <Image source={images.boardingScreenImage} />
+        <Image style={styles.imageStyle} source={images.boardingScreenImage} />
         <Text style={styles.text1_Style}>Welcome to the movie App</Text>
       </View>
       <View style={styles.secondViewStyle}>
         <LoginButton
-          onPress={() => navigation.navigate('HomeScreen')}
+          onpress={() => navigation.navigate('MyTabs')}
           Title={'Login'}
           backgroundcolor={AppColors.redColor}
         />
 
         <LoginButton
-          onPress={() => navigation.navigate('HomeScreen')}
+          onpress={() => navigation.navigate('LoginScreen')}
           Title={'Sign Up'}
           borderColor={AppColors.redColor}
           borderWidth={1}

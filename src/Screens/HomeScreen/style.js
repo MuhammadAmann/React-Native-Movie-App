@@ -8,10 +8,20 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
   },
+  profileImageStyle:{
+height: 40,
+width: 40,
+  },
+  headerIconViewStyle:{
+flexDirection: 'row'
+  },
+  searchIconStyle:{
+    marginRight: 10
+  },
   headerViewStyle: {
     flex: 1,
     flexDirection: 'row',
-    paddingVertical: 12,
+    paddingVertical: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -60,7 +70,7 @@ export const styles = StyleSheet.create({
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
-    color: AppColors.secondaryColor,
+    color: AppColors.orangeColor,
   },
   upcomingImageViewStyle: {
     height: fullHeight * 0.4,

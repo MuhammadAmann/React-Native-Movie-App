@@ -11,6 +11,10 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 10,
     marginTop: 5,
+    // color: 'white',
     // marginHorizontal:24
   },
+  inputfieldStyle:{
+    color: AppColors.whiteColor
+  }
 });

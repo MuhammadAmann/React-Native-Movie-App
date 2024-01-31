@@ -37,8 +37,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   backArrowViewStyle: {
-    backgroundColor: AppColors.secondaryColor,
-    height: 40 * heightRef,
+    backgroundColor: AppColors.orangeColor,
+    height: 45 * heightRef,
     width: 40 * widthRef,
     alignItems: 'center',
     justifyContent: 'center',
@@ -54,17 +54,20 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     textAlign: 'center',
     marginBottom: 10,
-    marginHorizontal:12
+    marginHorizontal: 12,
   },
   subtitetextStyle: {
     fontSize: 18 * fontRef,
     marginBottom: 5,
-    color:'#fff'
+    color: '#fff',
   },
   bodyTextStyle: {
     fontSize: 14 * fontRef,
-    color:'#fff',
-
+    color: '#fff',
+  },
+  iconsViewStyle: {
+    flexDirection: 'row',
+    marginTop: 20,
   },
   catagoryViewStyle: {
     // paddingVertical:10,
@@ -76,7 +79,26 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 10,
-    marginHorizontal: 10
+    marginHorizontal: 10,
+  },
+  iconViewStyle: {
+    borderColor: AppColors.orangeColor,
+    borderRadius: 12,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconView2Style: {
+    borderColor: AppColors.orangeColor,
+    borderRadius: 12,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    marginLeft:10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   upcomingImageViewStyle: {
     height: fullHeight * 0.4,
@@ -104,11 +126,11 @@ export const styles = StyleSheet.create({
   upcomingTextStyle: {
     fontSize: 18 * fontRef,
     color: 'white',
-    fontWeight: '600'
+    fontWeight: '600',
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
-    color: AppColors.secondaryColor,
-    fontWeight: '600'
+    color: AppColors.orangeColor,
+    fontWeight: '600',
   },
 });

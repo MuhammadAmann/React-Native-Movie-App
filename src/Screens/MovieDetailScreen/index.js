@@ -13,15 +13,15 @@ import images from '../../Assets/images';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 import LinearGradient from 'react-native-linear-gradient';
 import {Image} from 'react-native-svg';
-import { useEffect, useState } from 'react';
-import { getPopularMovies } from '../../ApiServices/Axios';
+import {useEffect, useState} from 'react';
+import {getPopularMovies} from '../../ApiServices/Axios';
 
 export const MovieDetailScreen = ({navigation, route}) => {
-    const [popularData, setPopularData] = useState([]);
-    const baseUrl = 'https://image.tmdb.org/t/p/w500/';
-    const data = route.params.item;
-    // const myData = route.params.popularData;
-//   console.log(myData);
+  const [popularData, setPopularData] = useState([]);
+  const baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  const data = route.params.item;
+  const myData = route.params.popularData;
+  console.log(popularData);
 
   useEffect(() => {
     getPopularMoviesData();
@@ -40,11 +40,11 @@ export const MovieDetailScreen = ({navigation, route}) => {
   return (
     <ScrollView style={styles.scrollViewStyle}>
       <View>
-        <ImageBackground source={{
-                  uri: `${baseUrl}${data.poster_path}`,
-                }}
-                style={styles.moviePosterStyle}
-              >
+        <ImageBackground
+          source={{
+            uri: `${baseUrl}${data.poster_path}`,
+          }}
+          style={styles.moviePosterStyle}>
           <LinearGradient
             colors={['rgba(18, 18, 18, 0)', 'rgba(18, 18, 18, 1)']}
             style={styles.onImageContentStyle}>
@@ -77,10 +77,25 @@ export const MovieDetailScreen = ({navigation, route}) => {
           </LinearGradient>
         </ImageBackground>
         <View style={styles.mainViewStyle}>
-          <Text style={styles.bodyTextStyle}>
-            {data.overview}
-          </Text>
-
+          <Text style={styles.bodyTextStyle}>{data.overview}</Text>
+          <View style={styles.iconsViewStyle}>
+            <View style={styles.iconViewStyle}>
+              <Icon
+                name="share-social"
+                type={IconType.Ionicons}
+                color="white"
+                size={24}
+              />
+            </View>
+            <View style={styles.iconView2Style}>
+              <Icon
+                name="cloud-download-outline"
+                type={IconType.Ionicons}
+                color="white"
+                size={24}
+              />
+            </View>
+          </View>
           <View style={styles.catagoryViewStyle}>
             <View style={styles.upcomingHeaderViewStyle}>
               <Text style={styles.upcomingTextStyle}>Similar Movies</Text>
@@ -90,31 +105,31 @@ export const MovieDetailScreen = ({navigation, route}) => {
               </TouchableOpacity>
             </View>
             {popularData.length ? (
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={popularData}
-            renderItem={({item}) => (
-              <View style={styles.upcomingImageViewStyle}>
-                <ImageBackground
-                imageStyle={{borderRadius: 20}}
-                  source={{
-                    uri: `${baseUrl}${item.backdrop_path}`,
-                  }}
-                  style={styles.upcomingImagesStyle}
-                />
-                <Text style={styles.upcomingMoviesTitleStyle}>
-                  {item.original_title}
-                </Text>
+              <FlatList
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={popularData}
+                renderItem={({item}) => (
+                  <View style={styles.upcomingImageViewStyle}>
+                    <ImageBackground
+                      imageStyle={{borderRadius: 20}}
+                      source={{
+                        uri: `${baseUrl}${item.backdrop_path}`,
+                      }}
+                      style={styles.upcomingImagesStyle}
+                    />
+                    <Text style={styles.upcomingMoviesTitleStyle}>
+                      {item.original_title}
+                    </Text>
+                  </View>
+                )}
+              />
+            ) : (
+              <View style={styles.sliderImageViewStyle}>
+                {/* <BarIndicator color="grey" /> */}
+                <Text>No Data</Text>
               </View>
             )}
-          />
-        ) : (
-          <View style={styles.sliderImageViewStyle}>
-            {/* <BarIndicator color="grey" /> */}
-            <Text>No Data</Text>
-          </View>
-        )}
           </View>
         </View>
       </View>

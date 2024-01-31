@@ -17,6 +17,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 24,
   },
+  emailTextStyle:{
+    color: AppColors.whiteColor
+  },
   headerViewStyle: {
     flexDirection: 'row',
     alignItems: 'center',

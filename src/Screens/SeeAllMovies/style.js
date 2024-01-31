@@ -12,7 +12,7 @@ import {
 export const styles = StyleSheet.create({
   mainViewStyle: {
     // flex: 1,
-    backgroundColor: AppColors.backgroundColor,
+    backgroundColor: AppColors.backgroundPrimaryColor,
   },
   wrapViewStyle: {
     flexDirection: 'row',
@@ -33,11 +33,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     // justifyContent: 'space-between',
     elevation: 6,
-    backgroundColor: AppColors.backgroundColor,
+    backgroundColor: AppColors.backgroundPrimaryColor,
     // height: 50 * heightRef
   },
   headerTextStyle: {
-    color: AppColors.secondaryColor,
+    color: AppColors.orangeColor,
     fontSize: 30 * fontRef,
     fontWeight: 'bold',
     marginLeft: '10%'

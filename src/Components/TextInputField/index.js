@@ -9,7 +9,7 @@ const CustomTextInputField = ({title}) => {
   const [textValue, setTextValue] = useState('');
   return (
     <View style={styles.textInputStyle}>
-      <TextInput
+      <TextInput style={styles.inputfieldStyle}
         placeholder={title}
         placeholderTextColor={AppColors.whiteColor}
         value={textValue}

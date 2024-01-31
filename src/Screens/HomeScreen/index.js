@@ -21,6 +21,8 @@ import {
 } from '../../ApiServices/Axios';
 import LinearGradient from 'react-native-linear-gradient';
 import {createShimmerPlaceholder} from 'react-native-shimmer-placeholder';
+import {fullWidth, widthRef} from '../../Config/screenSizes';
+import images from '../../Assets/images';
 const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
 
 export const HomeScreen = ({props, navigation}) => {
@@ -80,15 +82,30 @@ export const HomeScreen = ({props, navigation}) => {
 
   return (
     <ScrollView
-      contentContainerStyle={{paddingBottom: 20}}
+      contentContainerStyle={{paddingBottom: 80}}
       style={styles.mainViewStyle}>
       <View style={styles.headerViewStyle}>
-        <Icon name="menu" type={IconType.Feather} color="white" size={24} />
-        <TouchableOpacity
-          onPress={() => navigation.navigate('SeeAllMoviesScreen')}>
-          <Text style={styles.headerTextStyle}>Movies</Text>
-        </TouchableOpacity>
-        <Icon name="search" type={IconType.Feather} color="white" size={24} />
+        <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
+          <Image
+            source={images.boardingScreenImage}
+            style={styles.profileImageStyle}
+          />
+        </Pressable>
+        <View style={styles.headerIconViewStyle}>
+          <Icon
+            name="search"
+            type={IconType.Feather}
+            color="white"
+            size={24}
+            style={styles.searchIconStyle}
+          />
+          <Icon
+            name="notifications-outline"
+            type={IconType.Ionicons}
+            color="white"
+            size={24}
+          />
+        </View>
       </View>
       <Text style={styles.trendngTextStyle}>Now Playing</Text>
       {nowPlayingData.length ? (
@@ -102,6 +119,7 @@ export const HomeScreen = ({props, navigation}) => {
               onPress={() => navigation.navigate('MovieDetailScreen', {item})}
               style={styles.sliderImageViewStyle}>
               <Image
+                // resizeMode='cover'
                 source={{
                   uri: `${baseUrl}${item.poster_path}`,
                 }}
@@ -114,9 +132,6 @@ export const HomeScreen = ({props, navigation}) => {
         <View style={styles.sliderImageViewStyle}>
           <ShimmerPlaceHolder style={styles.ImageViewStyle} />
         </View>
-        // <View style={styles.sliderImageViewStyle}>
-        //   <BarIndicator color="grey" />
-        // </View>
       )}
 
       {/* Upcoming Movies List View   */}
@@ -135,7 +150,9 @@ export const HomeScreen = ({props, navigation}) => {
             showsHorizontalScrollIndicator={false}
             data={upcomingData}
             renderItem={({item}) => (
-              <View style={styles.upcomingImageViewStyle}>
+              <Pressable
+                onPress={() => navigation.navigate('MovieDetailScreen', {item})}
+                style={styles.upcomingImageViewStyle}>
                 <Image
                   source={{
                     uri: `${baseUrl}${item.backdrop_path}`,
@@ -145,7 +162,7 @@ export const HomeScreen = ({props, navigation}) => {
                 <Text style={styles.upcomingMoviesTitleStyle}>
                   {item.original_title}
                 </Text>
-              </View>
+              </Pressable>
             )}
           />
         ) : (
@@ -183,7 +200,9 @@ export const HomeScreen = ({props, navigation}) => {
             showsHorizontalScrollIndicator={false}
             data={topRatedData}
             renderItem={({item}) => (
-              <View style={styles.upcomingImageViewStyle}>
+              <Pressable
+                onPress={() => navigation.navigate('MovieDetailScreen', {item})}
+                style={styles.upcomingImageViewStyle}>
                 <Image
                   source={{
                     uri: `${baseUrl}${item.backdrop_path}`,
@@ -193,7 +212,7 @@ export const HomeScreen = ({props, navigation}) => {
                 <Text style={styles.upcomingMoviesTitleStyle}>
                   {item.original_title}
                 </Text>
-              </View>
+              </Pressable>
             )}
           />
         ) : (
@@ -223,7 +242,9 @@ export const HomeScreen = ({props, navigation}) => {
             showsHorizontalScrollIndicator={false}
             data={popularData}
             renderItem={({item}) => (
-              <View style={styles.upcomingImageViewStyle}>
+              <Pressable
+                onPress={() => navigation.navigate('MovieDetailScreen', {item})}
+                style={styles.upcomingImageViewStyle}>
                 <Image
                   source={{
                     uri: `${baseUrl}${item.backdrop_path}`,
@@ -233,7 +254,7 @@ export const HomeScreen = ({props, navigation}) => {
                 <Text style={styles.upcomingMoviesTitleStyle}>
                   {item.original_title}
                 </Text>
-              </View>
+              </Pressable>
             )}
           />
         ) : (
