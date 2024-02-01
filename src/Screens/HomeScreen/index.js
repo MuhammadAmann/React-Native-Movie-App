@@ -25,7 +25,7 @@ import {fullWidth, widthRef} from '../../Config/screenSizes';
 import images from '../../Assets/images';
 const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
 
-export const HomeScreen = ({props, navigation}) => {
+export const HomeScreen = ({navigation}) => {
   //Movie baseUrl
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
 
@@ -139,7 +139,7 @@ export const HomeScreen = ({props, navigation}) => {
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Upcoming</Text>
           <TouchableOpacity
-            onPress={() => navigation.navigate('SeeAllMoviesScreen')}>
+            onPress={() => navigation.navigate('SeeAllMoviesScreen', upcomingData)}>
             <Text style={styles.seeAllTextStyle}>See All</Text>
           </TouchableOpacity>
         </View>
@@ -176,13 +176,6 @@ export const HomeScreen = ({props, navigation}) => {
               </View>
             )}
           />
-          // <View >
-          //   <ShimmerPlaceHolder style={styles.upcomingImagesStyle} />
-          // </View>
-
-          // <View style={styles.sliderImageViewStyle}>
-          //   <BarIndicator color="grey" />
-          // </View>
         )}
       </View>
 
@@ -191,7 +184,11 @@ export const HomeScreen = ({props, navigation}) => {
       <View>
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Top Rated</Text>
-          <Text style={styles.seeAllTextStyle}>See All</Text>
+          <Text
+            onPress={() => navigation.navigate('SeeAllMoviesScreen', topRatedData)}
+            style={styles.seeAllTextStyle}>
+            See All
+          </Text>
         </View>
 
         {topRatedData.length ? (
@@ -233,7 +230,11 @@ export const HomeScreen = ({props, navigation}) => {
       <View>
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Popular</Text>
-          <Text style={styles.seeAllTextStyle}>See All</Text>
+          <Text
+            onPress={() => navigation.navigate('SeeAllMoviesScreen', popularData)}
+            style={styles.seeAllTextStyle}>
+            See All
+          </Text>
         </View>
 
         {popularData.length ? (
@@ -262,7 +263,7 @@ export const HomeScreen = ({props, navigation}) => {
             horizontal
             showsHorizontalScrollIndicator={false}
             data={[1, 1, 1]}
-            renderItem={({item}) => (
+            renderItem={() => (
               <View style={styles.upcomingShimmerViewStyle}>
                 <ShimmerPlaceHolder style={styles.upcomingImagesStyle} />
               </View>

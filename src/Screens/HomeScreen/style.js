@@ -77,7 +77,7 @@ flexDirection: 'row'
     width: fullWidth * 0.4,
     // marginTop: 10,
     paddingVertical:10,
-    marginBottom: 30,
+    marginBottom: 40,
     paddingHorizontal: 10,
     marginHorizontal: 10,
     alignItems: 'center',

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {View, Text} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import React from 'react';
 import {styles} from './style';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
@@ -38,9 +38,10 @@ export const HomeBottomBar = ({state, navigation}) => {
     <View style={styles.NavBarStyle}>
       {Screens.map((value, index) => {
         return (
-          <View style={{alignItems: 'center'}}>
+          <Pressable
+            style={{alignItems: 'center'}}
+            onPress={() => navigation.navigate(value.name)}>
             <Icon
-              onPress={() => navigation.navigate(value.name)}
               name={state.index === index ? value.active : value.inActive}
               type={IconType.Ionicons}
               color={
@@ -50,14 +51,15 @@ export const HomeBottomBar = ({state, navigation}) => {
               }
             />
             {state.index === index ? (
-<Icon name='dot-single' type={IconType.Entypo} color={AppColors.orangeColor}/>
-) : (
-              <Text style={{color: AppColors.whiteColor}}>
-                {' '}
-                {value.barName}
-              </Text>
+              <Icon
+                name="dot-single"
+                type={IconType.Entypo}
+                color={AppColors.orangeColor}
+              />
+            ) : (
+              <Text style={{color: AppColors.whiteColor}}>{value.barName}</Text>
             )}
-          </View>
+          </Pressable>
         );
       })}
     </View>

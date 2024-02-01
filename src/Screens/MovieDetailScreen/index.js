@@ -20,8 +20,8 @@ export const MovieDetailScreen = ({navigation, route}) => {
   const [popularData, setPopularData] = useState([]);
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
   const data = route.params.item;
-  const myData = route.params.popularData;
-  console.log(popularData);
+  // const myData = route.params.popularData;
+  // console.log(popularData);
 
   useEffect(() => {
     getPopularMoviesData();

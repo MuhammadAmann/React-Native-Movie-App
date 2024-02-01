@@ -27,9 +27,23 @@ export const styles = StyleSheet.create({
   profileImageViewStyle: {
     height: 150,
     width: 150,
-    borderRadius: 100,
-    // borderWidth: 1,
+    borderRadius:100,
+    alignSelf: 'center',
+    marginTop: 20,
+    borderWidth:1,
     borderColor: AppColors.orangeColor,
+    backgroundColor: AppColors.backgroundSecondaryColor,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  ImageViewStyle: {
+    height: 150,
+    width: 150,
+    alignSelf: 'center',
+    marginTop: 20,
+  },
+  userProfileImageViewStyle: {
+    borderRadius:100,
     alignSelf: 'center',
     marginTop: 20,
   },
@@ -71,7 +85,7 @@ export const styles = StyleSheet.create({
     padding: 3,
     position: 'absolute',
     bottom: 20,
-    right: 20,
+    right: 2,
     backgroundColor: AppColors.backgroundSecondaryColor,
   },
   profileViewContentStyle: {
@@ -83,4 +97,35 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
     marginVertical: 10,
   },
+  modalStyle: {
+    marginHorizontal: 0,
+    marginBottom: 0,
+  },
+
+  modalViewStyle: {
+    flex: 1,
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: AppColors.backgroundSecondaryColor,
+    width: '100%',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingHorizontal: 30,
+    paddingTop: 30,
+    paddingBottom: 20
+  },
+  innerModalViewStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  modalTextStyle: {
+    fontSize: 18,
+    marginLeft: 20,
+  },
+  cencelIconStyle:{
+    position: 'absolute',
+    top:15,
+    right:20
+  }
 });

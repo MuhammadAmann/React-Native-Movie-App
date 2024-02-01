@@ -11,8 +11,9 @@ import {
 
 export const styles = StyleSheet.create({
   mainViewStyle: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
+    paddingBottom: 10
   },
   wrapViewStyle: {
     flexDirection: 'row',
@@ -26,21 +27,18 @@ export const styles = StyleSheet.create({
     backgroundColor: 'red',
   },
   headerViewStyle: {
-    // flex: 1,
     flexDirection: 'row',
     paddingVertical: 12,
     paddingHorizontal: 20,
     alignItems: 'center',
-    // justifyContent: 'space-between',
     elevation: 6,
     backgroundColor: AppColors.backgroundPrimaryColor,
-    // height: 50 * heightRef
   },
   headerTextStyle: {
     color: AppColors.orangeColor,
     fontSize: 30 * fontRef,
     fontWeight: 'bold',
-    marginLeft: '10%'
+    marginLeft: '10%',
   },
   trendngTextStyle: {
     color: 'white',
@@ -78,21 +76,24 @@ export const styles = StyleSheet.create({
     fontSize: 18 * fontRef,
     fontWeight: '600',
     textAlign: 'center',
+    width: 150,
     // marginBottom: 40,
+  },
+  seeAllImagesStyle:{
+    alignItems:'center'
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
     color: AppColors.secondaryColor,
   },
   upcomingImageViewStyle: {
-    height: fullHeight * 0.4,
+    height: fullHeight * 0.3,
     width: fullWidth * 0.4,
     marginTop: 20,
-    paddingVertical: 10,
-    // paddingHorizontal: 10,
-    marginHorizontal: 10,
-    // alignItems: 'center',
+    marginHorizontal: 20,
     justifyContent: 'center',
+    borderRadius: 20,
+    marginVertical: 10 * heightRef,
   },
   upcomingImagesStyle: {
     height: '90%',
@@ -105,11 +106,8 @@ export const styles = StyleSheet.create({
     width: fullWidth * 0.4 * widthRef,
     borderRadius: 20,
     marginVertical: 10 * heightRef,
-    backgroundColor: 'red',
-    // marginBottom:20,
   },
   catagoryViewStyle: {
-    // paddingVertical:10,
     marginBottom: 10,
   },
 });

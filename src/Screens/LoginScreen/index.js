@@ -14,6 +14,7 @@ const LoginScreen = ({navigation}) => {
       contentContainerStyle={{
         paddingBottom: 20,
         backgroundColor: AppColors.backgroundPrimaryColor,
+        flex:1
       }}>
       <View style={styles.mainViewStyle}>
         <View style={styles.headerViewStyle}>

@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
   headerViewStyle: {
     flex: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
     paddingVertical: 20,

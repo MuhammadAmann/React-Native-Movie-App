@@ -1,12 +1,22 @@
 /* eslint-disable prettier/prettier */
-import {FlatList, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import {Image} from 'react-native-svg';
+import {
+  FlatList,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Pressable,
+} from 'react-native';
 import {styles} from './style';
 import {getPopularMovies} from '../../ApiServices/Axios';
 import {useEffect, useState} from 'react';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 
-export const SeeAllMoviesScreen = () => {
+export const SeeAllMoviesScreen = ({navigation, route}) => {
+  const baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  const data = route.params;
+
   return (
     <View style={styles.mainViewStyle}>
       <View style={styles.headerViewStyle}>
@@ -17,29 +27,30 @@ export const SeeAllMoviesScreen = () => {
           size={30}
         />
         <TouchableOpacity>
-          <Text style={styles.headerTextStyle}>Upcoming Movies</Text>
+          <Text style={styles.headerTextStyle}>All Movies</Text>
         </TouchableOpacity>
         {/* <Icon name="menu" type={IconType.Feather} color="white" size={24} /> */}
       </View>
       <FlatList
-        // horizontal
         style={styles.wrapViewStyle}
         showsHorizontalScrollIndicator={false}
-        data={[1, 1, 1, 1, 1, 1, 1, 1, 1]}
+        data={data}
         numColumns={2}
         renderItem={({item}) => (
-          <View style={styles.upcomingImageViewStyle}>
-            <View style={styles.upcomingdummyViewStyle}></View>
-            {/* <Image
-                  source={{
-                    uri: `${baseUrl}${item.backdrop_path}`,
-                  }}
-                  style={styles.upcomingImagesStyle}
-                /> */}
+          <Pressable
+            onPress={() => navigation.navigate('MovieDetailScreen', {item})}
+            style={styles.seeAllImagesStyle}>
+            <Image
+              style={styles.upcomingImageViewStyle}
+              source={{
+                uri: `${baseUrl}${item.backdrop_path}`,
+              }}
+            />
+
             <Text style={styles.upcomingMoviesTitleStyle}>
-              Title here Title here Title here
+              {item.original_title}
             </Text>
-          </View>
+          </Pressable>
         )}
       />
     </View>
