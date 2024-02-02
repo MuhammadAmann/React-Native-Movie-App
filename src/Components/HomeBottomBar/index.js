@@ -22,7 +22,7 @@ export const HomeBottomBar = ({state, navigation}) => {
     },
     {
       barName: 'Favorite',
-      name: 'WatchListScreen',
+      name: 'FavoriteListScreen',
       active: 'heart',
       inActive: 'heart-outline',
     },

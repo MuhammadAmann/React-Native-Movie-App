@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerViewStyle: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -97,7 +97,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 6,
-    marginLeft:10,
+    marginLeft: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },

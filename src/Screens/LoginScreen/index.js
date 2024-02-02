@@ -14,11 +14,11 @@ const LoginScreen = ({navigation}) => {
       contentContainerStyle={{
         paddingBottom: 20,
         backgroundColor: AppColors.backgroundPrimaryColor,
-        flex:1
       }}>
       <View style={styles.mainViewStyle}>
         <View style={styles.headerViewStyle}>
           <Icon
+            onPress={() => navigation.goBack()}
             name="chevron-back-outline"
             type={IconType.Ionicons}
             size={30}
@@ -26,7 +26,7 @@ const LoginScreen = ({navigation}) => {
           />
           {/* <Text style={styles.loginHeadertextStyle}>Login</Text> */}
           <Text
-            onPress={() => navigation.navigate('HomeScreen')}
+            onPress={() => navigation.navigate('MyTabs')}
             style={styles.skipHeadertextStyle}>
             Skip
           </Text>

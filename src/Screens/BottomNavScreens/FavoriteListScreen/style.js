@@ -1,39 +1,41 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
-import {AppColors} from '../../Assets/colors';
-import {fontRef, fullHeight, fullWidth} from '../../Config/screenSizes';
+import { AppColors } from '../../../Assets/colors';
+import { fontRef, fullHeight, fullWidth, heightRef, widthRef } from '../../../Config/screenSizes';
 
 export const styles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
-  },
-  headerView1Style: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    paddingBottom: 10
   },
   profileImageStyle: {
     height: 40,
     width: 40,
   },
-  headerIconViewStyle: {
+  wrapViewStyle: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignSelf: 'center',
   },
-  searchIconStyle: {
-    marginRight: 10,
+  textViewStyle: {
+    height: 100,
+    width: 100,
+    margin: 10,
+    backgroundColor: 'red',
   },
   headerViewStyle: {
-    flex: 1,
     flexDirection: 'row',
-    paddingVertical: 10,
+    paddingVertical: 12,
     paddingHorizontal: 20,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    elevation: 6,
   },
   headerTextStyle: {
-    color: AppColors.secondaryColor,
-    fontSize: 30 * fontRef,
+    color: AppColors.orangeColor,
+    fontSize: 24 * fontRef,
     fontWeight: 'bold',
+    marginLeft: 10,
   },
   trendngTextStyle: {
     color: 'white',
@@ -42,11 +44,6 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     marginTop: 10,
   },
-  ImageViewStyle: {
-    height: '90%',
-    width: fullWidth * 0.85,
-    borderRadius: 20,
-  },
   sliderImageViewStyle: {
     height: fullHeight / 2,
     width: fullWidth,
@@ -54,6 +51,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
+  },
+  ImageViewStyle: {
+    height: '90%',
+    width: fullWidth * 0.85,
+    borderRadius: 20,
   },
   upcomingHeaderViewStyle: {
     flex: 1,
@@ -65,41 +67,30 @@ export const styles = StyleSheet.create({
   upcomingTextStyle: {
     fontSize: 18 * fontRef,
     color: 'white',
-    fontWeight: '700',
   },
   upcomingMoviesTitleStyle: {
     color: 'white',
     fontSize: 18 * fontRef,
     fontWeight: '600',
     textAlign: 'center',
+    width: 150,
+    // marginBottom: 40,
+  },
+  seeAllImagesStyle:{
+    alignItems:'center'
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
-    color: AppColors.orangeColor,
+    color: AppColors.secondaryColor,
   },
   upcomingImageViewStyle: {
-    height: fullHeight * 0.4,
+    height: fullHeight * 0.3,
     width: fullWidth * 0.4,
-    // marginTop: 10,
-    paddingVertical: 10,
-    marginBottom: 40,
-    paddingHorizontal: 10,
-    marginHorizontal: 10,
-    alignItems: 'center',
-    // justifyContent: 'center',
-    borderRadius: 20,
-  },
-  upcomingShimmerViewStyle: {
-    height: fullHeight * 0.4,
-    width: fullWidth * 0.4,
-    marginTop: 5,
-    paddingVertical: 10,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-    marginHorizontal: 10,
-    alignItems: 'center',
+    marginTop: 20,
+    marginHorizontal: 20,
     justifyContent: 'center',
     borderRadius: 20,
+    marginVertical: 10 * heightRef,
   },
   upcomingImagesStyle: {
     height: '90%',
@@ -107,8 +98,13 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     marginVertical: 10,
   },
+  upcomingdummyViewStyle: {
+    height: '90%',
+    width: fullWidth * 0.4 * widthRef,
+    borderRadius: 20,
+    marginVertical: 10 * heightRef,
+  },
   catagoryViewStyle: {
-    // paddingVertical:10,
     marginBottom: 10,
   },
 });

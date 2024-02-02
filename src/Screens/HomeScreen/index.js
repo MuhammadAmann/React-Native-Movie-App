@@ -85,14 +85,24 @@ export const HomeScreen = ({navigation}) => {
       contentContainerStyle={{paddingBottom: 80}}
       style={styles.mainViewStyle}>
       <View style={styles.headerViewStyle}>
-        <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
-          <Image
-            source={images.boardingScreenImage}
-            style={styles.profileImageStyle}
+        <View style={styles.headerView1Style}>
+          <Icon
+            onPress={() => navigation.goBack()}
+            name="chevron-back-outline"
+            type={IconType.Ionicons}
+            color="white"
+            size={30}
           />
-        </Pressable>
+          <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
+            <Image
+              source={images.boardingScreenImage}
+              style={styles.profileImageStyle}
+            />
+          </Pressable>
+        </View>
         <View style={styles.headerIconViewStyle}>
           <Icon
+            onPress={() => navigation.navigate('SearchScreen')}
             name="search"
             type={IconType.Feather}
             color="white"
@@ -139,7 +149,9 @@ export const HomeScreen = ({navigation}) => {
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Upcoming</Text>
           <TouchableOpacity
-            onPress={() => navigation.navigate('SeeAllMoviesScreen', upcomingData)}>
+            onPress={() =>
+              navigation.navigate('SeeAllMoviesScreen', upcomingData)
+            }>
             <Text style={styles.seeAllTextStyle}>See All</Text>
           </TouchableOpacity>
         </View>
@@ -185,7 +197,9 @@ export const HomeScreen = ({navigation}) => {
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Top Rated</Text>
           <Text
-            onPress={() => navigation.navigate('SeeAllMoviesScreen', topRatedData)}
+            onPress={() =>
+              navigation.navigate('SeeAllMoviesScreen', topRatedData)
+            }
             style={styles.seeAllTextStyle}>
             See All
           </Text>
@@ -231,7 +245,9 @@ export const HomeScreen = ({navigation}) => {
         <View style={styles.upcomingHeaderViewStyle}>
           <Text style={styles.upcomingTextStyle}>Popular</Text>
           <Text
-            onPress={() => navigation.navigate('SeeAllMoviesScreen', popularData)}
+            onPress={() =>
+              navigation.navigate('SeeAllMoviesScreen', popularData)
+            }
             style={styles.seeAllTextStyle}>
             See All
           </Text>

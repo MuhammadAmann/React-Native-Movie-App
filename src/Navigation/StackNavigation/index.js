@@ -14,15 +14,17 @@ const Tab = createBottomTabNavigator();
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import SearchScreen from '../../Screens/BottomNavScreens/SearchScreen';
 import UserProfileScreen from '../../Screens/BottomNavScreens/UserProfileScreen';
-import WatchListScreen from '../../Screens/BottomNavScreens/WatchListScreen';
+import {FavoriteListScreen} from '../../Screens/BottomNavScreens/FavoriteListScreen';
 import HomeBottomBar from '../../Components/HomeBottomBar';
 
 export const MyTabs = () => {
   return (
-    <Tab.Navigator tabBar={props => <HomeBottomBar {...{...props}} />} screenOptions={{headerShown: false}}>
+    <Tab.Navigator
+      tabBar={props => <HomeBottomBar {...{...props}} />}
+      screenOptions={{headerShown: false}}>
       <Tab.Screen name="HomeScreen" component={HomeScreen} />
       <Tab.Screen name="SearchScreen" component={SearchScreen} />
-      <Tab.Screen name="WatchListScreen" component={WatchListScreen} />
+      <Tab.Screen name="FavoriteListScreen" component={FavoriteListScreen} />
       <Tab.Screen name="UserProfileScreen" component={UserProfileScreen} />
     </Tab.Navigator>
   );

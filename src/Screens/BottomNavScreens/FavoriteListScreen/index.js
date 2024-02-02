@@ -1,20 +1,27 @@
 /* eslint-disable prettier/prettier */
-import {View, Text, Pressable, Image, FlatList} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {
+  FlatList,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Pressable,
+} from 'react-native';
 import {styles} from './style';
-import SearchBar from '../../../Components/SearchBar';
+import {useEffect, useState} from 'react';
+import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 import {
   getNowPlayingMovies,
   getPopularMovies,
   getTopRatedMovies,
   getUpcomingMovies,
 } from '../../../ApiServices/Axios';
-import Icon, { IconType } from 'react-native-dynamic-vector-icons';
 import images from '../../../Assets/images';
-// import {SearchBar} from 'react-native-screens';
 
-const SearchScreen = ({navigation, route}) => {
+export const FavoriteListScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
+  // const data = route.params;
 
   const [nowPlayingData, setnNowPlayingData] = useState([]);
   const [upcomingData, setUpcomingData] = useState([]);
@@ -69,19 +76,20 @@ const SearchScreen = ({navigation, route}) => {
 
   return (
     <View style={styles.mainViewStyle}>
-      <View style={styles.searchHeaderViewStyle}>
-      <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
-            <Image
-              source={images.boardingScreenImage}
-              style={styles.profileImageStyle}
-            />
-          </Pressable>
-        <SearchBar />
+      <View style={styles.headerViewStyle}>
+        <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
+          <Image
+            source={images.boardingScreenImage}
+            style={styles.profileImageStyle}
+          />
+        </Pressable>
+        <Text style={styles.headerTextStyle}>Favorite Movies</Text>
+        {/* <Icon name="menu" type={IconType.Feather} color="white" size={24} /> */}
       </View>
       <FlatList
         style={styles.wrapViewStyle}
         showsHorizontalScrollIndicator={false}
-        data={upcomingData}
+        data={topRatedData}
         numColumns={2}
         renderItem={({item}) => (
           <Pressable
@@ -103,5 +111,3 @@ const SearchScreen = ({navigation, route}) => {
     </View>
   );
 };
-
-export default SearchScreen;

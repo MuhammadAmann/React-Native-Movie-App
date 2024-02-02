@@ -18,7 +18,8 @@ import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const UserProfileScreen = () => {
   const [isVisible, setVisible] = useState(false);
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState();
+
   const profileContent = [
     {
       iconName: 'person-outline',
@@ -60,34 +61,42 @@ const UserProfileScreen = () => {
     quality: 1,
     width: 150,
     height: 150,
-    includeBase64: true,
+    includeBase64: false,
   };
 
   const openCamera = async () => {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.CAMERA,
-    );
-    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      const result = await launchCamera(options);
-      setImage(result.assets[0]);
-      setVisible(false)
-    }else{
-      console.log("Failed")
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+      );
+      console.log('Before if');
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        const res = await launchCamera(options);
+        if (res.didCancel) {
+        } else {
+          setImage(res.assets[0]);        }
+      } else {
+      }
+    } catch (error) {
+    } finally {
+      setVisible(false);
     }
   };
 
   const openGallery = () => {
-    launchImageLibrary(options, res => {
-      if (res.didCancel) {
-        console.log('user cencel image');
-        return;
-      } else if (res.errorMessage) {
-        console.log('error: ', res.errorMessage);
-        return;
-      }
-      setImage(res.assets[0]);
-      setVisible(false)
-    });
+    try {
+      launchImageLibrary(options, res => {
+        if (res.didCancel) {
+          return;
+        } else if (res.errorMessage) {
+          return;
+        }
+        setImage(res.assets[0]);
+      });
+    } catch (error) {
+    } finally {
+      setVisible(false);
+    }
   };
 
   return (
@@ -116,8 +125,12 @@ const UserProfileScreen = () => {
               </TouchableOpacity>
             </ImageBackground>
           ) : (
-            <View style={styles.profileImageViewStyle}>
-              <Text>Upload Image</Text>
+            <View
+              style={styles.profileImageViewStyle}
+              onPress={() => {
+                setVisible(true);
+              }}>
+              <Text style={styles.uploadImageTextStyle}>Upload Image</Text>
               <TouchableOpacity
                 onPress={() => {
                   setVisible(true);
@@ -173,7 +186,7 @@ const UserProfileScreen = () => {
             <Icon
               name="circle-with-cross"
               type={IconType.Entypo}
-              color={AppColors.redColor}
+              color= 'grey'
               style={styles.cencelIconStyle}
               onPress={() => {
                 setVisible(false);

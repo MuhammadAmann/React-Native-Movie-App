@@ -69,6 +69,9 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     marginTop: 20,
   },
+  uploadImageTextStyle:{
+    color: AppColors.orangeColor
+  },
   profileViewStyle: {
     backgroundColor: AppColors.backgroundSecondaryColor,
     marginHorizontal: 20,
@@ -122,6 +125,7 @@ export const styles = StyleSheet.create({
   modalTextStyle: {
     fontSize: 18,
     marginLeft: 20,
+    color: AppColors.whiteColor
   },
   cencelIconStyle:{
     position: 'absolute',
