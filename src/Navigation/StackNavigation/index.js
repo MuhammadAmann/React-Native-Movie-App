@@ -18,6 +18,7 @@ import {FavoriteListScreen} from '../../Screens/BottomNavScreens/FavoriteListScr
 import HomeBottomBar from '../../Components/HomeBottomBar';
 
 export const MyTabs = () => {
+  
   return (
     <Tab.Navigator
       tabBar={props => <HomeBottomBar {...{...props}} />}
@@ -29,6 +30,8 @@ export const MyTabs = () => {
     </Tab.Navigator>
   );
 };
+
+
 
 export const ScreenNavigations = () => {
   return (

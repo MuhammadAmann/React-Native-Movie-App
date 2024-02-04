@@ -5,19 +5,22 @@ import React from 'react';
 import {styles} from './style';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 
-const SearchBar = () => {
+const SearchBar = ({onCencelPress, value, onChangeText}) => {
   return (
     <View style={styles.searchViewStyle}>
       <TextInput
         style={styles.searchBarStyle}
-        placeholder="Search"
+        placeholder="Search here..."
         placeholderTextColor="grey"
+        value={value}
+        onChangeText={onChangeText}
       />
       <Icon
         name="circle-with-cross"
         type={IconType.Entypo}
         color="grey"
         size={18}
+        onPress={onCencelPress}
       />
     </View>
   );
