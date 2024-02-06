@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   wrapViewStyle: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignSelf: 'center',
+    // alignSelf: 'center',
   },
   textViewStyle: {
     height: 100,

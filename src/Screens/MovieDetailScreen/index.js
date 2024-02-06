@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   FlatList,
+  Pressable,
 } from 'react-native';
 import {styles} from './style';
 import images from '../../Assets/images';
@@ -15,13 +16,27 @@ import LinearGradient from 'react-native-linear-gradient';
 import {Image} from 'react-native-svg';
 import {useEffect, useState} from 'react';
 import {getPopularMovies} from '../../ApiServices/Axios';
+import {useDispatch, useSelector} from 'react-redux';
+import {addMovie, removeMovie} from '../../Redux/slice.js';
 
 export const MovieDetailScreen = ({navigation, route}) => {
   const [popularData, setPopularData] = useState([]);
+  const [isAdded, setIsAdded] = useState(false);
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
   const data = route.params.item;
-  // const myData = route.params.popularData;
-  // console.log(popularData);
+  const dispatch = useDispatch();
+  const addedItems = useSelector(state => state.movieCart);
+
+  // console.log(addedItems);
+
+  const addItems = item => {
+    dispatch(addMovie(item));
+    console.log(addedItems);
+  };
+  const removeItem = item => {
+    dispatch(removeMovie(item.id));
+    console.log("Item removed")
+  };
 
   useEffect(() => {
     getPopularMoviesData();
@@ -58,12 +73,31 @@ export const MovieDetailScreen = ({navigation, route}) => {
                   size={30}
                 />
               </View>
-              <Icon
-                name="heart-o"
-                type={IconType.FontAwesome}
-                color="white"
-                size={30}
-              />
+              {isAdded ? (
+                <Icon
+                  onPress={() => {
+                    removeItem(data);
+                    setIsAdded(false);
+                  }}
+                  name="heart"
+                  type={IconType.FontAwesome}
+                  color="red"
+                  size={30}
+                />
+                
+              ) : (
+                <Icon
+                  onPress={() => {
+                    addItems(data);
+                    setIsAdded(true);
+                  }}
+                  name='heart-o'
+                  type={IconType.FontAwesome}
+                  color='white'
+                  size={30}
+                />
+              )
+              }
             </View>
             <View style={styles.bottomViewStyle}>
               <Text style={styles.titleTextStyle}>{data.original_title}</Text>
@@ -110,7 +144,11 @@ export const MovieDetailScreen = ({navigation, route}) => {
                 showsHorizontalScrollIndicator={false}
                 data={popularData}
                 renderItem={({item}) => (
-                  <View style={styles.upcomingImageViewStyle}>
+                  <Pressable
+                    onPress={() =>
+                      navigation.navigate('MovieDetailScreen', {item})
+                    }
+                    style={styles.upcomingImageViewStyle}>
                     <ImageBackground
                       imageStyle={{borderRadius: 20}}
                       source={{
@@ -121,7 +159,7 @@ export const MovieDetailScreen = ({navigation, route}) => {
                     <Text style={styles.upcomingMoviesTitleStyle}>
                       {item.original_title}
                     </Text>
-                  </View>
+                  </Pressable>
                 )}
               />
             ) : (

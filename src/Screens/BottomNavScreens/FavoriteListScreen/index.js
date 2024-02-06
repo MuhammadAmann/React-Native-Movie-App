@@ -7,72 +7,29 @@ import {
   View,
   Image,
   Pressable,
+  ImageBackground,
 } from 'react-native';
 import {styles} from './style';
 import {useEffect, useState} from 'react';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
-import {
-  getNowPlayingMovies,
-  getPopularMovies,
-  getTopRatedMovies,
-  getUpcomingMovies,
-} from '../../../ApiServices/Axios';
 import images from '../../../Assets/images';
+import {useDispatch, useSelector} from 'react-redux';
+import {removeMovie} from '../../../Redux/slice';
 
 export const FavoriteListScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
-  // const data = route.params;
+  const FavoriteMovies = useSelector(state => state.movieCart.item);
+  // const [isAdded, setIsAdded] = useState(true);
+  console.log(FavoriteMovies)
+  const dispatch = useDispatch();
 
-  const [nowPlayingData, setnNowPlayingData] = useState([]);
-  const [upcomingData, setUpcomingData] = useState([]);
-  const [topRatedData, setTopRatedData] = useState([]);
-  const [popularData, setPopularData] = useState([]);
-
-  useEffect(() => {
-    getNowPlayingMoviesData();
-    getUpcomingMoviesData();
-    getTopRatedMoviesData();
-    getPopularMoviesData();
-  }, []);
-
-  const getNowPlayingMoviesData = async () => {
-    await getNowPlayingMovies()
-      .then(item => {
-        setnNowPlayingData(item.results);
-      })
-      .catch(error => {
-        console.warn(error);
-      });
+  const removeItem = item => {
+    dispatch(removeMovie(item.id));
+    console.log('Item removed');
   };
-  const getUpcomingMoviesData = async () => {
-    await getUpcomingMovies()
-      .then(item => {
-        setUpcomingData(item.results);
-      })
-      .catch(error => {
-        console.warn(error);
-      });
-  };
-
-  const getTopRatedMoviesData = async () => {
-    await getTopRatedMovies()
-      .then(item => {
-        setTopRatedData(item.results);
-      })
-      .catch(error => {
-        console.warn(error);
-      });
-  };
-
-  const getPopularMoviesData = async () => {
-    await getPopularMovies()
-      .then(item => {
-        setPopularData(item.results);
-      })
-      .catch(error => {
-        console.warn(error);
-      });
-  };
+  // useEffect(() => {
+  //   console.log(FavoriteMovies);
+  // }, []);
 
   return (
     <View style={styles.mainViewStyle}>
@@ -86,28 +43,44 @@ export const FavoriteListScreen = ({navigation, route}) => {
         <Text style={styles.headerTextStyle}>Favorite Movies</Text>
         {/* <Icon name="menu" type={IconType.Feather} color="white" size={24} /> */}
       </View>
-      <FlatList
-        style={styles.wrapViewStyle}
-        showsHorizontalScrollIndicator={false}
-        data={topRatedData}
-        numColumns={2}
-        renderItem={({item}) => (
-          <Pressable
-            onPress={() => navigation.navigate('MovieDetailScreen', {item})}
-            style={styles.seeAllImagesStyle}>
-            <Image
-              style={styles.upcomingImageViewStyle}
-              source={{
-                uri: `${baseUrl}${item.backdrop_path}`,
-              }}
-            />
-
-            <Text style={styles.upcomingMoviesTitleStyle}>
-              {item.original_title}
-            </Text>
-          </Pressable>
-        )}
-      />
+      {FavoriteMovies?.length ? (
+        <FlatList
+          style={styles.wrapViewStyle}
+          showsHorizontalScrollIndicator={false}
+          data={FavoriteMovies}
+          numColumns={2}
+          renderItem={({item}) => (
+            <Pressable
+              onPress={() => navigation.navigate('MovieDetailScreen', {item})}
+              style={styles.seeAllImagesStyle}>
+              <ImageBackground
+                imageStyle={{borderRadius: 20}}
+                style={styles.upcomingImageViewStyle}
+                source={{
+                  uri: `${baseUrl}${item.backdrop_path}`,
+                }}>
+                <Icon
+                  style={styles.FavoriteIconStye}
+                  onPress={() => {
+                    removeItem(item);
+                  }}
+                  name="heart"
+                  type={IconType.FontAwesome}
+                  color="red"
+                  size={30}
+                />
+              </ImageBackground>
+              <Text style={styles.upcomingMoviesTitleStyle}>
+                {item.original_title}
+              </Text>
+            </Pressable>
+          )}
+        />
+      ) : (
+        <View style={styles.noMoviesViewStyle}>
+          <Text style={styles.noMovieDataTextStyle}>No Favorite Movies</Text>
+        </View>
+      )}
     </View>
   );
 };

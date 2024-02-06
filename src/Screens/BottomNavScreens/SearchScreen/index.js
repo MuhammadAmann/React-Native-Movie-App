@@ -1,44 +1,38 @@
 /* eslint-disable prettier/prettier */
 import {View, Text, Pressable, Image, FlatList} from 'react-native';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {styles} from './style';
 import SearchBar from '../../../Components/SearchBar';
 import {getUpcomingMovies} from '../../../ApiServices/Axios';
 import images from '../../../Assets/images';
-// import {SearchBar} from 'react-native-screens';
 
 const SearchScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
 
   const [upcomingData, setUpcomingData] = useState([]);
   const [search, setSearch] = useState('');
-  const [oldData, setOldData] = useState('');
-  const searchRef = useRef();
 
   useEffect(() => {
     getUpcomingMovies()
       .then(item => {
         setUpcomingData(item.results);
-        setOldData(item.results);
       })
       .catch(error => {
         console.warn(error);
       });
   }, []);
 
-  const onSearch = text => {
-    if (text === '') {
-      setUpcomingData(oldData);
+  const searchFiltered = useMemo(() => {
+    if (!search) {
+      return upcomingData;
     } else {
-      let tempList = upcomingData.filter(item => {
+      return upcomingData.filter(item => {
         return (
-          item.original_title.toLowerCase().indexOf(text.toLowerCase()) > -1
+          item.original_title.toLowerCase().indexOf(search.toLowerCase()) > -1
         );
       });
-      setUpcomingData(tempList);
     }
-  };
-
+  }, [search, upcomingData]);
   return (
     <View style={styles.mainViewStyle}>
       <View style={styles.searchHeaderViewStyle}>
@@ -51,16 +45,11 @@ const SearchScreen = ({navigation, route}) => {
         <SearchBar
           value={search}
           onChangeText={txt => {
-            onSearch(txt);
             setSearch(txt);
           }}
           onCencelPress={() => {
             {
-              search == '' ? null :
-              // searchRef.currentText = search;
-              onSearch('');
-              setSearch('');
-              
+              search == '' ? null : setSearch('');
             }
           }}
         />
@@ -68,7 +57,7 @@ const SearchScreen = ({navigation, route}) => {
       <FlatList
         style={styles.wrapViewStyle}
         showsHorizontalScrollIndicator={false}
-        data={upcomingData}
+        data={searchFiltered}
         numColumns={2}
         renderItem={({item}) => (
           <Pressable

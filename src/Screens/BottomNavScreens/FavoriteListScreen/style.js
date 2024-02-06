@@ -1,13 +1,19 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
-import { AppColors } from '../../../Assets/colors';
-import { fontRef, fullHeight, fullWidth, heightRef, widthRef } from '../../../Config/screenSizes';
+import {AppColors} from '../../../Assets/colors';
+import {
+  fontRef,
+  fullHeight,
+  fullWidth,
+  heightRef,
+  widthRef,
+} from '../../../Config/screenSizes';
 
 export const styles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   profileImageStyle: {
     height: 40,
@@ -16,7 +22,6 @@ export const styles = StyleSheet.create({
   wrapViewStyle: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignSelf: 'center',
   },
   textViewStyle: {
     height: 100,
@@ -68,6 +73,14 @@ export const styles = StyleSheet.create({
     fontSize: 18 * fontRef,
     color: 'white',
   },
+  noMovieDataTextStyle:{
+    // textAlign: 'center',
+  },
+  noMoviesViewStyle:{
+    flex:1,
+alignItems: 'center',
+justifyContent: 'center',
+  },
   upcomingMoviesTitleStyle: {
     color: 'white',
     fontSize: 18 * fontRef,
@@ -76,20 +89,24 @@ export const styles = StyleSheet.create({
     width: 150,
     // marginBottom: 40,
   },
-  seeAllImagesStyle:{
-    alignItems:'center'
+  seeAllImagesStyle: {
+    alignItems: 'center',
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
     color: AppColors.secondaryColor,
+  },
+  FavoriteIconStye: {
+    position: 'absolute',
+    right: 10,
+    top: 10,
   },
   upcomingImageViewStyle: {
     height: fullHeight * 0.3,
     width: fullWidth * 0.4,
     marginTop: 20,
     marginHorizontal: 20,
-    justifyContent: 'center',
-    borderRadius: 20,
+    // justifyContent: '',
     marginVertical: 10 * heightRef,
   },
   upcomingImagesStyle: {

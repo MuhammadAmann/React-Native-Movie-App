@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
@@ -26,7 +27,8 @@
     "react-native-screens": "^3.29.0",
     "react-native-shimmer-placeholder": "^2.0.9",
     "react-native-vector-icons": "^10.0.3",
-    "react-redux": "^9.1.0"
+    "react-redux": "^9.1.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
