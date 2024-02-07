@@ -18,7 +18,7 @@ import {removeMovie} from '../../../Redux/slice';
 
 export const FavoriteListScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
-  const FavoriteMovies = useSelector(state => state.movieCart.item);
+  const FavoriteMovies = useSelector(state => state.movieCart);
   // const [isAdded, setIsAdded] = useState(true);
   console.log(FavoriteMovies)
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ export const FavoriteListScreen = ({navigation, route}) => {
         <Text style={styles.headerTextStyle}>Favorite Movies</Text>
         {/* <Icon name="menu" type={IconType.Feather} color="white" size={24} /> */}
       </View>
-      {FavoriteMovies?.length ? (
+      {FavoriteMovies.length ? (
         <FlatList
           style={styles.wrapViewStyle}
           showsHorizontalScrollIndicator={false}

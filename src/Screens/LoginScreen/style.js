@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
   bodyViewStyle: {
     justifyContent: 'center',
     marginHorizontal: 24,
+    // flex:1
   },
   emailTextStyle:{
     color: AppColors.whiteColor
