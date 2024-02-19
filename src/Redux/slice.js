@@ -8,22 +8,20 @@ const FavoriteSlice = createSlice({
   name: 'FavoriteMoviesSlice',
   initialState: initialState,
   reducers: {
-    addMovie: (state, action) =>{
+    addMovie: (state, action) => {
       let existingItem = state.find(
         currentItem => currentItem.id === action.payload.id,
       );
       if (existingItem) {
         console.warn('Item Already added in Cart ');
       } else {
-       state.push(action.payload);
+        state.push(action.payload);
         console.warn('Item Added');
       }
-    //   state.push(action.payload);
     },
     removeMovie: (state, action) => {
       return state.filter(item => item.id !== action.payload);
     },
-
   },
 });
 

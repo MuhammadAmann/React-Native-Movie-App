@@ -27,15 +27,12 @@ export const MovieDetailScreen = ({navigation, route}) => {
   const dispatch = useDispatch();
   const addedItems = useSelector(state => state.movieCart);
 
-  // console.log(addedItems);
 
   const addItems = item => {
     dispatch(addMovie(item));
-    console.log(addedItems);
   };
   const removeItem = item => {
     dispatch(removeMovie(item.id));
-    console.log("Item removed")
   };
 
   useEffect(() => {
@@ -164,7 +161,6 @@ export const MovieDetailScreen = ({navigation, route}) => {
               />
             ) : (
               <View style={styles.sliderImageViewStyle}>
-                {/* <BarIndicator color="grey" /> */}
                 <Text>No Data</Text>
               </View>
             )}

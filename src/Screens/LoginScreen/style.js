@@ -10,16 +10,15 @@ import {
 
 export const styles = StyleSheet.create({
   mainViewStyle: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
   },
   bodyViewStyle: {
     justifyContent: 'center',
     marginHorizontal: 24,
-    // flex:1
   },
-  emailTextStyle:{
-    color: AppColors.whiteColor
+  emailTextStyle: {
+    color: AppColors.whiteColor,
   },
   headerViewStyle: {
     flexDirection: 'row',
@@ -68,12 +67,12 @@ export const styles = StyleSheet.create({
     height: 1,
     width: fullWidth * widthRef,
   },
-  iconsViewStyle:{
-    flexDirection:'row',
+  iconsViewStyle: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 40
+    marginTop: 40,
   },
-  iconStyle:{
-    marginHorizontal:20
-  }
+  iconStyle: {
+    marginHorizontal: 20,
+  },
 });

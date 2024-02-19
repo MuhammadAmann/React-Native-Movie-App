@@ -1,16 +1,13 @@
 /* eslint-disable prettier/prettier */
 import {
   FlatList,
-  ScrollView,
   Text,
-  TouchableOpacity,
   View,
   Image,
   Pressable,
   ImageBackground,
 } from 'react-native';
 import {styles} from './style';
-import {useEffect, useState} from 'react';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 import images from '../../../Assets/images';
 import {useDispatch, useSelector} from 'react-redux';
@@ -19,17 +16,11 @@ import {removeMovie} from '../../../Redux/slice';
 export const FavoriteListScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
   const FavoriteMovies = useSelector(state => state.movieCart);
-  // const [isAdded, setIsAdded] = useState(true);
-  console.log(FavoriteMovies)
   const dispatch = useDispatch();
 
   const removeItem = item => {
     dispatch(removeMovie(item.id));
-    console.log('Item removed');
   };
-  // useEffect(() => {
-  //   console.log(FavoriteMovies);
-  // }, []);
 
   return (
     <View style={styles.mainViewStyle}>
@@ -41,7 +32,6 @@ export const FavoriteListScreen = ({navigation, route}) => {
           />
         </Pressable>
         <Text style={styles.headerTextStyle}>Favorite Movies</Text>
-        {/* <Icon name="menu" type={IconType.Feather} color="white" size={24} /> */}
       </View>
       {FavoriteMovies.length ? (
         <FlatList
