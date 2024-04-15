@@ -13,6 +13,7 @@ const LoginScreen = ({navigation}) => {
     <ScrollView
       contentContainerStyle={{
         paddingBottom: 20,
+        flex:1,
         backgroundColor: AppColors.backgroundPrimaryColor,
       }}>
       <View style={styles.mainViewStyle}>
