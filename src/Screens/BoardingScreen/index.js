@@ -11,9 +11,10 @@ import images from '../../Assets/images';
 export const BoradingScreen = ({navigation}) => {
   return (
     <View style={styles.mainViewStyle}>
+        <Text style={styles.text2_Style}>Movie App</Text>
       <View style={styles.view1Style}>
         <Image style={styles.imageStyle} source={images.boardingScreenImage} />
-        <Text style={styles.text1_Style}>Welcome to the movie App</Text>
+        <Text style={styles.text1_Style}>Welcome!</Text>
       </View>
       <View style={styles.secondViewStyle}>
         <LoginButton

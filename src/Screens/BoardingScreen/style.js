@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
   },
   view1Style: {
     alignItems: 'center',
-    marginTop: fullHeight * 0.25 * heightRef,
+    // marginTop: fullHeight * 0.25 * heightRef,
   },
   secondViewStyle: {
     marginBottom: 30,
@@ -25,5 +25,11 @@ export const styles = StyleSheet.create({
   text1_Style: {
     color: 'white',
     fontSize: 18,
+  },
+  text2_Style: {
+    color: AppColors.orangeColor,
+    fontSize: 24,
+    marginTop: 40,
+    fontWeight: '600'
   },
 });
