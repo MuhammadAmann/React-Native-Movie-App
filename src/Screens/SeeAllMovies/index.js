@@ -25,6 +25,7 @@ export const SeeAllMoviesScreen = ({navigation, route}) => {
           type={IconType.Ionicons}
           color="white"
           size={30}
+          onPress={() => navigation.goBack()}
         />
         <TouchableOpacity>
           <Text style={styles.headerTextStyle}>All Movies</Text>

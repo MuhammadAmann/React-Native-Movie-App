@@ -26,7 +26,9 @@ export const styles = StyleSheet.create({
     textAlignVertical: 'center',
     justifyContent: 'space-between',
     paddingVertical: 12,
-    paddingHorizontal: 24,
+    paddingRight: 24,
+    paddingLeft: 20
+    // backgroundColor:'red'
   },
   heightViewStyle: {
     height: 20,
@@ -70,7 +72,7 @@ export const styles = StyleSheet.create({
   iconsViewStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 40,
+    marginVertical: 40,
   },
   iconStyle: {
     marginHorizontal: 20,

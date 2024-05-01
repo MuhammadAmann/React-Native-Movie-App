@@ -12,20 +12,18 @@ const LoginScreen = ({navigation}) => {
   return (
     <ScrollView
       contentContainerStyle={{
-        paddingBottom: 20,
-        flex:1,
+        // marginVertical: 20,
+        // flex:1,
         backgroundColor: AppColors.backgroundPrimaryColor,
       }}>
-      <View style={styles.mainViewStyle}>
         <View style={styles.headerViewStyle}>
           <Icon
             onPress={() => navigation.goBack()}
             name="chevron-back-outline"
             type={IconType.Ionicons}
-            size={30}
+            size={24}
             color={AppColors.whiteColor}
           />
-          {/* <Text style={styles.loginHeadertextStyle}>Login</Text> */}
           <Text
             onPress={() => navigation.navigate('MyTabs')}
             style={styles.skipHeadertextStyle}>
@@ -73,7 +71,6 @@ const LoginScreen = ({navigation}) => {
             />
           </View>
         </View>
-      </View>
     </ScrollView>
   );
 };
