@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   profileImageStyle: {
     height: 40,
     width: 40,
-    marginRight:10
+    marginRight: 10,
   },
   headerView1Style: {
     flexDirection: 'row',
@@ -27,9 +27,9 @@ export const styles = StyleSheet.create({
   },
   searchHeaderViewStyle: {
     paddingHorizontal: 20,
-    paddingTop: 10,
-    flexDirection:'row',
-    alignItems: 'center'
+    // paddingTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   wrapViewStyle: {
     flexDirection: 'row',

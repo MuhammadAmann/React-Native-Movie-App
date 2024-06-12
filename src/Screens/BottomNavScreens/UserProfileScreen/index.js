@@ -15,6 +15,7 @@ import {AppColors} from '../../../Assets/colors';
 import images from '../../../Assets/images';
 import Modal from 'react-native-modal';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import SafeArea from '../../../Components/SafeArea';
 
 const UserProfileScreen = () => {
   const [isVisible, setVisible] = useState(false);
@@ -74,7 +75,8 @@ const UserProfileScreen = () => {
         const res = await launchCamera(options);
         if (res.didCancel) {
         } else {
-          setImage(res.assets[0]);        }
+          setImage(res.assets[0]);
+        }
       } else {
       }
     } catch (error) {
@@ -103,6 +105,7 @@ const UserProfileScreen = () => {
     <ScrollView
       contentContainerStyle={{paddingBottom: 70}}
       style={styles.scrollviewStyle}>
+      <SafeArea />
       <View style={styles.mainViewStyle}>
         {/* <Text style={styles.settingsHeadingTextStyle}>Profile Settings</Text> */}
         <View style={styles.userProfileImageViewStyle}>
@@ -186,7 +189,7 @@ const UserProfileScreen = () => {
             <Icon
               name="circle-with-cross"
               type={IconType.Entypo}
-              color= 'grey'
+              color="grey"
               style={styles.cencelIconStyle}
               onPress={() => {
                 setVisible(false);

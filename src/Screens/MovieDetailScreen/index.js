@@ -18,6 +18,7 @@ import {useEffect, useState} from 'react';
 import {getPopularMovies} from '../../ApiServices/Axios';
 import {useDispatch, useSelector} from 'react-redux';
 import {addMovie, removeMovie} from '../../Redux/slice.js';
+import SafeArea from '../../Components/SafeArea/index.js';
 
 export const MovieDetailScreen = ({navigation, route}) => {
   const [popularData, setPopularData] = useState([]);
@@ -26,7 +27,6 @@ export const MovieDetailScreen = ({navigation, route}) => {
   const data = route.params.item;
   const dispatch = useDispatch();
   const addedItems = useSelector(state => state.movieCart);
-
 
   const addItems = item => {
     dispatch(addMovie(item));
@@ -51,6 +51,7 @@ export const MovieDetailScreen = ({navigation, route}) => {
 
   return (
     <ScrollView style={styles.scrollViewStyle}>
+      <SafeArea />
       <View>
         <ImageBackground
           source={{
@@ -81,20 +82,18 @@ export const MovieDetailScreen = ({navigation, route}) => {
                   color="red"
                   size={30}
                 />
-                
               ) : (
                 <Icon
                   onPress={() => {
                     addItems(data);
                     setIsAdded(true);
                   }}
-                  name='heart-o'
+                  name="heart-o"
                   type={IconType.FontAwesome}
-                  color='white'
+                  color="white"
                   size={30}
                 />
-              )
-              }
+              )}
             </View>
             <View style={styles.bottomViewStyle}>
               <Text style={styles.titleTextStyle}>{data.original_title}</Text>

@@ -7,11 +7,13 @@ import {styles} from './style';
 import {LoginButton} from '../../Components/LoginButton';
 import {AppColors} from '../../Assets/colors';
 import images from '../../Assets/images';
+import SafeArea from '../../Components/SafeArea';
 
 export const BoradingScreen = ({navigation}) => {
   return (
     <View style={styles.mainViewStyle}>
-        <Text style={styles.text2_Style}>Movie App</Text>
+      <SafeArea />
+      <Text style={styles.text2_Style}>Movie App</Text>
       <View style={styles.view1Style}>
         <Image style={styles.imageStyle} source={images.boardingScreenImage} />
         <Text style={styles.text1_Style}>Welcome!</Text>

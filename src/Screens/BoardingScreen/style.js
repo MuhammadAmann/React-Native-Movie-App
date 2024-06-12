@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
   },
   secondViewStyle: {
     marginBottom: 30,
-    
   },
   text1_Style: {
     color: 'white',
@@ -28,8 +27,8 @@ export const styles = StyleSheet.create({
   },
   text2_Style: {
     color: AppColors.orangeColor,
-    fontSize: 24,
-    marginTop: 40,
-    fontWeight: '600'
+    fontSize: 30,
+    // marginTop: 20,
+    fontWeight: '600',
   },
 });

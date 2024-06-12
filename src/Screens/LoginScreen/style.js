@@ -25,9 +25,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     textAlignVertical: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 12,
+    // paddingVertical: 12,
     paddingRight: 24,
-    paddingLeft: 20
+    paddingLeft: 20,
     // backgroundColor:'red'
   },
   heightViewStyle: {

@@ -5,6 +5,7 @@ import {styles} from './style';
 import SearchBar from '../../../Components/SearchBar';
 import {getUpcomingMovies} from '../../../ApiServices/Axios';
 import images from '../../../Assets/images';
+import SafeArea from '../../../Components/SafeArea';
 
 const SearchScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -35,6 +36,7 @@ const SearchScreen = ({navigation, route}) => {
   }, [search, upcomingData]);
   return (
     <View style={styles.mainViewStyle}>
+      <SafeArea />
       <View style={styles.searchHeaderViewStyle}>
         <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
           <Image

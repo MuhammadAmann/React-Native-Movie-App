@@ -12,6 +12,7 @@ import {styles} from './style';
 import {getPopularMovies} from '../../ApiServices/Axios';
 import {useEffect, useState} from 'react';
 import Icon, {IconType} from 'react-native-dynamic-vector-icons';
+import SafeArea from '../../Components/SafeArea';
 
 export const SeeAllMoviesScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -19,6 +20,7 @@ export const SeeAllMoviesScreen = ({navigation, route}) => {
 
   return (
     <View style={styles.mainViewStyle}>
+      <SafeArea />
       <View style={styles.headerViewStyle}>
         <Icon
           name="chevron-back-outline"

@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  SafeAreaView,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {styles} from './style';
@@ -23,6 +24,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import {createShimmerPlaceholder} from 'react-native-shimmer-placeholder';
 import {fullWidth, widthRef} from '../../Config/screenSizes';
 import images from '../../Assets/images';
+import {AppColors} from '../../Assets/colors';
+import SafeArea from '../../Components/SafeArea';
 const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
 
 export const HomeScreen = ({navigation}) => {
@@ -84,6 +87,8 @@ export const HomeScreen = ({navigation}) => {
     <ScrollView
       contentContainerStyle={{paddingBottom: 80}}
       style={styles.mainViewStyle}>
+      <SafeArea />
+
       <View style={styles.headerViewStyle}>
         <View style={styles.headerView1Style}>
           <Icon
@@ -100,6 +105,14 @@ export const HomeScreen = ({navigation}) => {
             />
           </Pressable>
         </View>
+        <Text
+          style={{
+            color: AppColors.orangeColor,
+            fontSize: 24,
+            fontWeight: '700',
+          }}>
+          Home
+        </Text>
         <View style={styles.headerIconViewStyle}>
           <Icon
             onPress={() => navigation.navigate('SearchScreen')}

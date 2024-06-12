@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   profileImageStyle: {
     height: 40,
     width: 40,
-    marginLeft: 5
+    marginLeft: 5,
   },
   headerIconViewStyle: {
     flexDirection: 'row',
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
   headerViewStyle: {
     flex: 1,
     flexDirection: 'row',
-    paddingVertical: 10,
+    paddingBottom: 10,
     paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -12,6 +12,7 @@ import Icon, {IconType} from 'react-native-dynamic-vector-icons';
 import images from '../../../Assets/images';
 import {useDispatch, useSelector} from 'react-redux';
 import {removeMovie} from '../../../Redux/slice';
+import SafeArea from '../../../Components/SafeArea';
 
 export const FavoriteListScreen = ({navigation, route}) => {
   const baseUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -24,6 +25,7 @@ export const FavoriteListScreen = ({navigation, route}) => {
 
   return (
     <View style={styles.mainViewStyle}>
+      <SafeArea />
       <View style={styles.headerViewStyle}>
         <Pressable onPress={() => navigation.navigate('UserProfileScreen')}>
           <Image

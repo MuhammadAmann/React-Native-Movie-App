@@ -11,7 +11,7 @@ import {
 
 export const styles = StyleSheet.create({
   scrollViewStyle: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
   },
   mainViewStyle: {

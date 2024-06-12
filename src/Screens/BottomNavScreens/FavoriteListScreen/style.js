@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   headerViewStyle: {
     flexDirection: 'row',
-    paddingVertical: 12,
+    paddingBottom: 12,
     paddingHorizontal: 20,
     alignItems: 'center',
     elevation: 6,
@@ -73,13 +73,13 @@ export const styles = StyleSheet.create({
     fontSize: 18 * fontRef,
     color: 'white',
   },
-  noMovieDataTextStyle:{
+  noMovieDataTextStyle: {
     // textAlign: 'center',
   },
-  noMoviesViewStyle:{
-    flex:1,
-alignItems: 'center',
-justifyContent: 'center',
+  noMoviesViewStyle: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   upcomingMoviesTitleStyle: {
     color: 'white',

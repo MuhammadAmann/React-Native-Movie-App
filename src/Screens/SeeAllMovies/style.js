@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   mainViewStyle: {
     flex: 1,
     backgroundColor: AppColors.backgroundPrimaryColor,
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   wrapViewStyle: {
     flexDirection: 'row',
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
   },
   headerViewStyle: {
     flexDirection: 'row',
-    paddingVertical: 12,
+    paddingBottom: 12,
     paddingHorizontal: 20,
     alignItems: 'center',
     elevation: 6,
@@ -79,8 +79,8 @@ export const styles = StyleSheet.create({
     width: 150,
     // marginBottom: 40,
   },
-  seeAllImagesStyle:{
-    alignItems:'center'
+  seeAllImagesStyle: {
+    alignItems: 'center',
   },
   seeAllTextStyle: {
     fontSize: 18 * fontRef,
